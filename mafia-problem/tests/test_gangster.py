@@ -49,6 +49,16 @@ class TestGangsterSubordinates(TestCase):
     def test_subordinates_returns_iterator(self):
         self.assertEquals(self.gs, next(self.g.subordinates()))
 
+    def test_delete_subordinate_throws_error_on_not_gangster_instance(self):
+        self.assertRaises(Exception, self.g.delete_subordinate, 'gigi')
+
+    def test_delete_subordinate_when_delete_subordinate_gangster_returns_true(self):
+        self.assertTrue(self.g.delete_subordinate(self.gs))
+
+    def test_delete_subordinate_when_delete_unknown_gangster_returns_false(self):
+        ngs = Gangster('Not Subordinate', 43)
+        self.assertFalse(self.g.delete_subordinate(ngs))
+
 
 class TestGangsterBoss(TestCase):
     def setUp(self):
@@ -63,6 +73,9 @@ class TestGangsterBoss(TestCase):
 
     def test_set_boss_throws_error_on_not_gangster_instance(self):
         self.assertRaises(Exception, self.g.set_boss, 'gigi')
+
+    def test_set_boss_accepts_none(self):
+        self.assertTrue(self.g.set_boss(None))
 
     def test_set_boss_updates_the_gangster_boss(self):
         self.assertTrue(self.g.has_boss())
