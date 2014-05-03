@@ -1,3 +1,6 @@
+Mafia Problem
+====
+
 The FBI has captured some Mafia internal records dating from 1985 until the present. They wish to use these records to map the entire mafia organization so they can put their resources towards catching the most important members.
 
 During these years there have been restructurings, murders and imprisonment. Based on previous investigations, we know how the mafia works when one of these events takes place:
@@ -7,3 +10,11 @@ During these years there have been restructurings, murders and imprisonment. Bas
 - When the imprisoned member is released from prison, he immediately recovers his old position in the organization (meaning that he will have the same boss that he had at the moment of being imprisoned). All his former direct subordinates are transferred to work for the recently released member, even if they were previously promoted or have a different boss now.
 
 You are asked to create a computer system for the FBI that allows them to store and manipulate all the records found. Keep in mind good design considerations applicable to the problem such as extensibility, maintainability, and modularity, among others. Try to develop the most optimal data structure and algorithms possible to implement the rules described.
+
+Run unit tests
+====
+Run the following command from the problem root:
+
+```
+python -m unittest discover -s tests
+```
